@@ -29,7 +29,7 @@
         }
         h1 {
             text-align: left;
-            font-size: 1vw;
+            font-size: clamp(1rem, 1vw, 1rem);
             margin-left: 0;
             margin-bottom: 10px;
             line-height: .1;
@@ -111,7 +111,6 @@
             padding-left: 1vw;
             padding-right: 1vw;
             flex: 1;
-            margin-left:15vw;
         }
 
         .sliderLabel {
@@ -123,19 +122,19 @@
         }
 
         .slider {
-            width: 10%; 
+            
             -webkit-appearance: none;
-            position: absolute;
-            left:28%;
+             max-width: 200px;
+            position: relative;
+            left: 0;
             margin-top: 1.4vw;
             height:.3vw;
         }
         
         .slider2 {
-            width: 10%; 
+            max-width: 200px;
             -webkit-appearance: none;
-            position: absolute;
-            left:65vw;
+             position: relative;
             margin-top: .8vw;
             height:.3vw;
         }
@@ -144,8 +143,8 @@
         .slider::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
-            width: 10rem;
-            height: 10rem;
+            width: 20px;
+            height: 20px;
             border-radius: 50%; 
             border: 3px solid black;
             background: gold;
@@ -171,26 +170,26 @@
         }
 
         .inputNumberDisplay {
-            font-size: 1rem;
+            font-size: 1px;
             text-align: center;
-            height: 25vw; 
+            height: 25px; 
         }
 
         .Range {
-            font-size: 1vw;
+            font-size: 1px;
             text-align: center;
-            height: 30vw; 
+            height: 30px; 
             
         }
 
         
         #numberDisplays {
-            font-size: 30vw;
+            font-size: 30pt;
         }
 
         #nntResult {
             padding: 1px;
-            font-size: 10%;
+            font-size:clamp(.5rem, 2.5vw, 2.5rem);
             color: gold;
             width: 100%;
             text-align: right;
@@ -200,7 +199,7 @@
         
         #nntResult2 {
             padding: 1px;
-            font-size: 2.5vw;
+            font-size:clamp(.5rem, 2.5vw, 2.5rem);
             color: gold;
             width: 100%;
             text-align: right;
@@ -241,38 +240,38 @@
             <tr style="background-color:lightgray;">
                 <td style="width:65%;">
                     <div id="instructions;" style="width:200%;" >
-                        <div class="instructionRow" style="background-color:#006766;color:white;height:5rem;width:220%;padding-top:.65rem;">
-                            <span class="instructionLabel" style="font-size: 1rem;"><u style="font-size:1.5rem;">STEP 1.</u> Select <span style="color:gold;">A)</span> 10-year ASCVD risk<sup>1</sup><br> or <span style="color:gold;">B)</span> Estimated number of
+                        <div class="instructionRow" style="background-color:#006766;color:white;height:80px;width:220%;padding-top:10px;">
+                            <span class="instructionLabel" style="font-size: clamp(1rem,1vw,1rem);"><u style="font-size: clamp(.5rem,1.5vw,1.5rem);">STEP 1.</u> Select <span style="color:gold;">A)</span> 10-year ASCVD risk<sup>1</sup><br> or <span style="color:gold;">B)</span> Estimated number of
                                 <br>Pulmonary events per year
                             
                             <span id="patientsWithEventValue" class="inputNumberDisplay" style="color:#006766;">0</span>
                            
                         </div>
                         <div class="instructionRow" style="background-color:#63A48D;color:black;height:80px;width:220%;padding-top:10px;">
-                            <span class="instructionLabel" style="font-size: 1rem;"><u style="font-size:1.5rem;">STEP 2.</u> Select Risk increase (%) <br>per PM2.5 exposure (10 µg/m<sup>3</sup>)  
+                            <span class="instructionLabel" style="font-size: clamp(1rem,1vw,1rem);"><u style="font-size: clamp(.5rem,1.5vw,1.5rem);">STEP 2.</u> Select Risk increase (%) <br>per PM2.5 exposure (10 µg/m<sup>3</sup>)  
                             <span id="riskIncreaseValue" class="inputNumberDisplay" style="color:#006766;">0</span>
                            
                         </div>
                         <div class="instructionRow" style="background-color:#c6e0b3;height:80px;width:220%;padding-top:10px;">
-                            <span class="instructionLabel"style="font-size: 1rem;" ><u style="font-size:1.5rem;">STEP 3.</u> Select PM<sub>2.5</sub> concentration <br>converted from the daily AQI for PM<sub>2.5</sub></sub><sup>2</sup></span><br>
+                            <span class="instructionLabel"style="font-size: clamp(1rem,1vw,1rem);" ><u style="font-size: clamp(.5rem,1.5vw,1.5rem);">STEP 3.</u> Select PM<sub>2.5</sub> concentration <br>converted from the daily AQI for PM<sub>2.5</sub></sub><sup>2</sup></span><br>
                             
                             <span id="totalPatientsTreatmentValue" class="inputNumberDisplay" style="color:#c6e0b3;">13</span>
                             
                         </div>
                         <div class="instructionRow" style="background-color: #e1efdb ;height:80px;width:220%;padding-top:10px;">
-                            <span class="instructionLabel" style="font-size: 1vw;"><u style="font-size:1.5vw;">STEP 4.</u> Select effectiveness <br>of intervention to reduce exposure<sup>3</sup></span><br>
+                            <span class="instructionLabel" style="font-size: clamp(1rem,1vw,1rem);"><u style="font-size: clamp(.5rem,1.5vw,1.5rem);">STEP 4.</u> Select effectiveness <br>of intervention to reduce exposure<sup>3</sup></span><br>
                            
                             <span id="eventRateControlValue" class="inputNumberDisplay" style="color: #e1efdb;margin-top:50px">15</span>
                            
                         </div>
                         <div class="instructionRow" style="height:1.2vh;width:100%">
-                            <span class="instructionLabel" style="float: left;margin-left:25vw;padding-top: 1.5px;font-size:1.7vw;">NNT<sub>1</sub> (day)<sup>4</sup>:</span>
+                            <span class="instructionLabel" style="float: left;margin-left:clamp(2rem,25vw,25rem);padding-top: 1.5px;font-size:clamp(.7rem, 1.7vw, 1.7rem);">NNT<sub>1</sub> (day)<sup>4</sup>:</span>
                         </div>
                     </div>
                 </td>
                 <td style="width:65%;border-left-style: solid;">
                     <div class="Range" style="font-size:.8em;padding-bottom: 80px;height: 10px;background-color:#006766;color:white;" >
-                        <span style="color:gold;font-size:1.3vw;">A) ASCVD</span> Estimated Range<br>
+                        <span style="color:gold;font-size:clamp(.3rem, 1.5vw, 1.5rem);">A) ASCVD</span> Estimated Range<br>
                         (1-20%)
                         <div class="sliderContainer">
                             <label class="sliderLabel" for="patientsWithEvent" title="Use Arrow Keys For Precise Selection">
@@ -310,21 +309,21 @@
                             
                                 </label>
                             </div>
-                              <span class="instructionLabel" style="float: left;margin-left:40vw;padding-top: 60px;font-size:1.7vw">NNT<sub>1</sub> (day)<sup>4</sup>:</span>
+                              <span class="instructionLabel" style="float: left;margin-left:clamp(20rem,40vw, 40rem);font-size:clamp(.7rem, 1.7vw, 1.7rem)">NNT<sub>1</sub> (day)<sup>4</sup>:</span>
                         </div>
                 </td>
-                <td style="font-size:6vw;width: 50%;">
+                <td style="font-size:60px;width: 50%;">
                     <div id="numberDisplays" style="margin-left:35px;">
-                        <div class="inputNumberDisplay" style="background-color:#fff2cd;color:#006766;font-size:2.5vw;padding-top: 1vw;padding-bottom: 20px;border: 2px solid black;height: 45px;" >
+                        <div class="inputNumberDisplay" style="background-color:#fff2cd;color:#006766;font-size:clamp(.5rem, 2.5vw, 2.5rem);padding-top: 22px;padding-bottom: 20px;border: 2px solid black;height: 45px;" >
                             <span id="patientsWithEventDisplay" style="float:right;" >1</span>
                         </div>
-                        <div class="inputNumberDisplay" style="background-color:#fff2cd;color:#006766;font-size:2.5vw;padding-top: 22px;padding-bottom: 20px;border: 2px solid black;height: 45px;" >
+                        <div class="inputNumberDisplay" style="background-color:#fff2cd;color:#006766;font-size:clamp(.5rem, 2.5vw, 2.5rem);padding-top: 22px;padding-bottom: 20px;border: 2px solid black;height: 45px;" >
                             <span id="riskIncreaseDisplay" style="float:right;" >1</span>
                         </div>
-                        <div class="inputNumberDisplay" style="background-color:#fff2cd;color:#006766;font-size:2.5vw; padding-top: 22px;padding-bottom: 20px;border: 2px solid black;height: 45px;">
+                        <div class="inputNumberDisplay" style="background-color:#fff2cd;color:#006766;font-size:clamp(.5rem, 2.5vw, 2.5rem); padding-top: 22px;padding-bottom: 20px;border: 2px solid black;height: 45px;">
                             <span id="totalPatientsTreatmentDisplay" style="float:right;" >13</span>
                         </div>
-                        <div class="inputNumberDisplay" style="background-color:#fff2cd;color:#006766;font-size:2.5vw;padding-top: 22px;padding-bottom: 20px;border: 2px solid black;height: 45px; ">
+                        <div class="inputNumberDisplay" style="background-color:#fff2cd;color:#006766;font-size:clamp(.5rem, 2.5vw, 2.5rem);padding-top: 22px;padding-bottom: 20px;border: 2px solid black;height: 45px; ">
                             <span id="eventRateControlDisplay" style="float:right;" >15</span>
                         </div>
                         <div id="nntResult"></div>
@@ -337,7 +336,7 @@
                     
                     <td style="width:65%">
                         <div class="Range" style="font-size:.8em;padding-bottom: 70px;height: 22px;background-color:#006766;color:white;" >
-                            <span style="color:gold;font-size:1.3rem;">B) <span style="color:white">Pulmonary events per year</span><br>
+                            <span style="color:gold;font-size:clamp(.3rem, 1.5vw, 1.5rem);">B) <span style="color:white">Pulmonary events per year</span><br>
                             <span style="font-size:1vw;color:white;">(0.5-4)</span>
                             <span id="patientsWithEventValue2" class="inputNumberDisplay" style="color:#006766;">0</span>
                            
@@ -386,16 +385,16 @@
                     </td>
                     <td style="font-size:60px;width: 50%;">
                         <div id="numberDisplays">
-                            <div class="inputNumberDisplay" style="background-color:#fff2cd;color:#006766;font-size:2.5vw;padding-top: 22px;padding-bottom: 20px;border: 2px solid black;height: 45px;" >
+                            <div class="inputNumberDisplay" style="background-color:#fff2cd;color:#006766;font-size:clamp(.5rem, 2.5vw, 2.5rem);padding-top: 22px;padding-bottom: 20px;border: 2px solid black;height: 45px;" >
                                 <span id="patientsWithEventDisplay2" style="float:right;" >1</span>
                             </div>
-                            <div class="inputNumberDisplay" style="background-color:#fff2cd;color:#006766;font-size:2.5vw;padding-top: 22px;padding-bottom: 20px;border: 2px solid black;height: 45px;" >
+                            <div class="inputNumberDisplay" style="background-color:#fff2cd;color:#006766;font-size:clamp(.5rem, 2.5vw, 2.5rem);padding-top: 22px;padding-bottom: 20px;border: 2px solid black;height: 45px;" >
                                 <span id="riskIncreaseDisplay2" style="float:right;" >1</span>
                             </div>
-                            <div class="inputNumberDisplay" style="background-color:#fff2cd;color:#006766;font-size:2.5vw; padding-top: 22px;padding-bottom: 20px;border: 2px solid black;height: 45px;">
+                            <div class="inputNumberDisplay" style="background-color:#fff2cd;color:#006766;font-size:clamp(.5rem, 2.5vw, 2.5rem); padding-top: 22px;padding-bottom: 20px;border: 2px solid black;height: 45px;">
                                 <span id="totalPatientsTreatmentDisplay2" style="float:right;" >13</span>
                             </div>
-                            <div class="inputNumberDisplay" style="background-color:#fff2cd;color:#006766;font-size:2.5vw;padding-top: 22px;padding-bottom: 20px;border: 2px solid black;height: 45px; ">
+                            <div class="inputNumberDisplay" style="background-color:#fff2cd;color:#006766;font-size:clamp(.5rem, 2.5vw, 2.5rem);padding-top: 22px;padding-bottom: 20px;border: 2px solid black;height: 45px; ">
                                 <span id="eventRateControlDisplay2" style="float:right;" >15</span>
                             </div>
                             <div id="nntResult2"></div>
@@ -515,3 +514,4 @@
     </script>
 </body>
 </html>
+
